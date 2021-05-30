@@ -194,4 +194,5 @@ inline bool Graph::IsNeighbor(Vertex u, Vertex v) const {
          offset < GetNeighborEndOffset(u, GetLabel(v)) && *it == v;
 }
 
+
 #endif  // GRAPH_H_

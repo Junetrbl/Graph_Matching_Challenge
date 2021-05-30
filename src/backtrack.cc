@@ -5,7 +5,9 @@
 
 #include "backtrack.h"
 
-Backtrack::Backtrack() {}
+Backtrack::Backtrack() {
+    std::cout << "backtrack" << "";
+}
 Backtrack::~Backtrack() {}
 
 void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
