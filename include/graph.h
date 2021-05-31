@@ -35,12 +35,17 @@ class Graph {
 
   inline bool IsNeighbor(Vertex u, Vertex v) const;
 
+  void buildDAG(Graph G);
+
  private:
   int32_t graph_id_;
 
   size_t num_vertices_;
   size_t num_edges_;
   size_t num_labels_;
+
+  Vertex root;
+
 
   std::vector<size_t> label_frequency_;
 
@@ -51,6 +56,13 @@ class Graph {
   std::vector<Vertex> adj_array_;
 
   Label max_label_;
+
+  int** childQuery = NULL;
+  int** parentQuery = NULL;
+  int* numChild = NULL;
+  int* numParent = NULL;
+
+  Vertex findRoot(Graph G);
 };
 
 /**

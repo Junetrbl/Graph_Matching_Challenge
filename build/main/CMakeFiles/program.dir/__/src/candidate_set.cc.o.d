@@ -1,7 +1,7 @@
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.o: \
-  /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/candidate_set.cc \
-  /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/include/candidate_set.h \
-  /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/include/common.h \
+  /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/candidate_set.cc \
+  /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/include/candidate_set.h \
+  /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/include/common.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/pthread.h \

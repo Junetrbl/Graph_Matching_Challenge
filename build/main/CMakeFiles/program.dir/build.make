@@ -53,10 +53,10 @@ RM = /usr/local/Cellar/cmake/3.20.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge
+CMAKE_SOURCE_DIR = /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build
+CMAKE_BINARY_DIR = /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build
 
 # Include any dependencies generated for this target.
 include main/CMakeFiles/program.dir/depend.make
@@ -72,79 +72,64 @@ include main/CMakeFiles/program.dir/flags.make
 main/CMakeFiles/program.dir/main.cc.o: main/CMakeFiles/program.dir/flags.make
 main/CMakeFiles/program.dir/main.cc.o: ../main/main.cc
 main/CMakeFiles/program.dir/main.cc.o: main/CMakeFiles/program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object main/CMakeFiles/program.dir/main.cc.o"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/main.cc.o -MF CMakeFiles/program.dir/main.cc.o.d -o CMakeFiles/program.dir/main.cc.o -c /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main/main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object main/CMakeFiles/program.dir/main.cc.o"
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/main.cc.o -MF CMakeFiles/program.dir/main.cc.o.d -o CMakeFiles/program.dir/main.cc.o -c /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main/main.cc
 
 main/CMakeFiles/program.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/main.cc.i"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main/main.cc > CMakeFiles/program.dir/main.cc.i
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main/main.cc > CMakeFiles/program.dir/main.cc.i
 
 main/CMakeFiles/program.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/main.cc.s"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main/main.cc -o CMakeFiles/program.dir/main.cc.s
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main/main.cc -o CMakeFiles/program.dir/main.cc.s
 
 main/CMakeFiles/program.dir/__/src/backtrack.cc.o: main/CMakeFiles/program.dir/flags.make
 main/CMakeFiles/program.dir/__/src/backtrack.cc.o: ../src/backtrack.cc
 main/CMakeFiles/program.dir/__/src/backtrack.cc.o: main/CMakeFiles/program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object main/CMakeFiles/program.dir/__/src/backtrack.cc.o"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/backtrack.cc.o -MF CMakeFiles/program.dir/__/src/backtrack.cc.o.d -o CMakeFiles/program.dir/__/src/backtrack.cc.o -c /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/backtrack.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object main/CMakeFiles/program.dir/__/src/backtrack.cc.o"
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/backtrack.cc.o -MF CMakeFiles/program.dir/__/src/backtrack.cc.o.d -o CMakeFiles/program.dir/__/src/backtrack.cc.o -c /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/backtrack.cc
 
 main/CMakeFiles/program.dir/__/src/backtrack.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/__/src/backtrack.cc.i"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/backtrack.cc > CMakeFiles/program.dir/__/src/backtrack.cc.i
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/backtrack.cc > CMakeFiles/program.dir/__/src/backtrack.cc.i
 
 main/CMakeFiles/program.dir/__/src/backtrack.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/__/src/backtrack.cc.s"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/backtrack.cc -o CMakeFiles/program.dir/__/src/backtrack.cc.s
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/backtrack.cc -o CMakeFiles/program.dir/__/src/backtrack.cc.s
 
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.o: main/CMakeFiles/program.dir/flags.make
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.o: ../src/candidate_set.cc
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.o: main/CMakeFiles/program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object main/CMakeFiles/program.dir/__/src/candidate_set.cc.o"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/candidate_set.cc.o -MF CMakeFiles/program.dir/__/src/candidate_set.cc.o.d -o CMakeFiles/program.dir/__/src/candidate_set.cc.o -c /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/candidate_set.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object main/CMakeFiles/program.dir/__/src/candidate_set.cc.o"
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/candidate_set.cc.o -MF CMakeFiles/program.dir/__/src/candidate_set.cc.o.d -o CMakeFiles/program.dir/__/src/candidate_set.cc.o -c /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/candidate_set.cc
 
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/__/src/candidate_set.cc.i"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/candidate_set.cc > CMakeFiles/program.dir/__/src/candidate_set.cc.i
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/candidate_set.cc > CMakeFiles/program.dir/__/src/candidate_set.cc.i
 
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/__/src/candidate_set.cc.s"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/candidate_set.cc -o CMakeFiles/program.dir/__/src/candidate_set.cc.s
-
-main/CMakeFiles/program.dir/__/src/dag.cpp.o: main/CMakeFiles/program.dir/flags.make
-main/CMakeFiles/program.dir/__/src/dag.cpp.o: ../src/dag.cpp
-main/CMakeFiles/program.dir/__/src/dag.cpp.o: main/CMakeFiles/program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object main/CMakeFiles/program.dir/__/src/dag.cpp.o"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/dag.cpp.o -MF CMakeFiles/program.dir/__/src/dag.cpp.o.d -o CMakeFiles/program.dir/__/src/dag.cpp.o -c /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/dag.cpp
-
-main/CMakeFiles/program.dir/__/src/dag.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/__/src/dag.cpp.i"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/dag.cpp > CMakeFiles/program.dir/__/src/dag.cpp.i
-
-main/CMakeFiles/program.dir/__/src/dag.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/__/src/dag.cpp.s"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/dag.cpp -o CMakeFiles/program.dir/__/src/dag.cpp.s
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/candidate_set.cc -o CMakeFiles/program.dir/__/src/candidate_set.cc.s
 
 main/CMakeFiles/program.dir/__/src/graph.cc.o: main/CMakeFiles/program.dir/flags.make
 main/CMakeFiles/program.dir/__/src/graph.cc.o: ../src/graph.cc
 main/CMakeFiles/program.dir/__/src/graph.cc.o: main/CMakeFiles/program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object main/CMakeFiles/program.dir/__/src/graph.cc.o"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/graph.cc.o -MF CMakeFiles/program.dir/__/src/graph.cc.o.d -o CMakeFiles/program.dir/__/src/graph.cc.o -c /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/graph.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object main/CMakeFiles/program.dir/__/src/graph.cc.o"
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/graph.cc.o -MF CMakeFiles/program.dir/__/src/graph.cc.o.d -o CMakeFiles/program.dir/__/src/graph.cc.o -c /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/graph.cc
 
 main/CMakeFiles/program.dir/__/src/graph.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/__/src/graph.cc.i"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/graph.cc > CMakeFiles/program.dir/__/src/graph.cc.i
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/graph.cc > CMakeFiles/program.dir/__/src/graph.cc.i
 
 main/CMakeFiles/program.dir/__/src/graph.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/__/src/graph.cc.s"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/graph.cc -o CMakeFiles/program.dir/__/src/graph.cc.s
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/graph.cc -o CMakeFiles/program.dir/__/src/graph.cc.s
 
 # Object files for target program
 program_OBJECTS = \
 "CMakeFiles/program.dir/main.cc.o" \
 "CMakeFiles/program.dir/__/src/backtrack.cc.o" \
 "CMakeFiles/program.dir/__/src/candidate_set.cc.o" \
-"CMakeFiles/program.dir/__/src/dag.cpp.o" \
 "CMakeFiles/program.dir/__/src/graph.cc.o"
 
 # External object files for target program
@@ -153,22 +138,21 @@ program_EXTERNAL_OBJECTS =
 main/program: main/CMakeFiles/program.dir/main.cc.o
 main/program: main/CMakeFiles/program.dir/__/src/backtrack.cc.o
 main/program: main/CMakeFiles/program.dir/__/src/candidate_set.cc.o
-main/program: main/CMakeFiles/program.dir/__/src/dag.cpp.o
 main/program: main/CMakeFiles/program.dir/__/src/graph.cc.o
 main/program: main/CMakeFiles/program.dir/build.make
 main/program: main/CMakeFiles/program.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable program"
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/program.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable program"
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/program.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 main/CMakeFiles/program.dir/build: main/program
 .PHONY : main/CMakeFiles/program.dir/build
 
 main/CMakeFiles/program.dir/clean:
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main && $(CMAKE_COMMAND) -P CMakeFiles/program.dir/cmake_clean.cmake
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main && $(CMAKE_COMMAND) -P CMakeFiles/program.dir/cmake_clean.cmake
 .PHONY : main/CMakeFiles/program.dir/clean
 
 main/CMakeFiles/program.dir/depend:
-	cd /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main/CMakeFiles/program.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main/CMakeFiles/program.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : main/CMakeFiles/program.dir/depend
 

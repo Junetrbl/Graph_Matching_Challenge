@@ -3,6 +3,7 @@
  *
  */
 
+#include <cfloat>
 #include "graph.h"
 
 namespace {
@@ -164,4 +165,144 @@ Graph::Graph(const std::string &filename, bool is_query) {
   }
 }
 
-Graph::~Graph() {}
+int Graph::findRoot(Graph G) {
+    this->root = -1;
+    double argmin = DBL_MAX;
+
+    for (int i = 0; i < GetNumVertices(); i++){
+        double C_ini_size = 0;
+        for (int j = 0; j < G.GetNumVertices() ; j++){
+            if (GetLabel(i) == G.GetLabel(j) && GetDegree(i) <= G.GetDegree(j)){
+                C_ini_size++;
+            }
+        }
+        if (C_ini_size/GetDegree(i) < argmin){
+            argmin = C_ini_size/GetDegree(i);
+            this->root = i;
+        }
+    }
+    return this->root;
+}
+
+void Graph::buildDAG(Graph G) {
+    //allocate memory for dag data structure
+    if( this->childQuery == NULL ) {
+        this->childQuery = new int*[num_vertices_];
+        for(int i = 0; i < num_vertices_; ++i)
+            this->childQuery[i] = NULL;
+    }
+    if( parentQuery == NULL ) {
+        parentQuery = new int*[num_vertices_];
+        for(int i = 0; i < num_vertices_; ++i)
+            parentQuery[i] = NULL;
+    }
+    if( numChild == NULL )
+        numChild = new int[num_vertices_];
+    if( numParent == NULL )
+        numParent = new int[num_vertices_];
+
+    for (int i = 0; i < num_vertices_; i++){
+        numChild[i] = 0;
+        numParent[i] = 0;
+    }
+
+    for(int i = 0; i <num_vertices_; ++i) {
+        if( childQuery[i] != NULL) {
+            delete[] childQuery[i];
+            childQuery[i] = NULL;
+        }
+        childQuery[i] = new int[GetDegree(i)];
+
+        if( parentQuery[i] != NULL ) {
+            delete[] parentQuery[i];
+            parentQuery[i] = NULL;
+        }
+        parentQuery[i] = new int[GetDegree(i)];
+
+
+        for (int j = 0 ; j < GetDegree(i); j++){
+            childQuery[i][j] = -1;
+            parentQuery[i][j] = -1;
+        }
+    }
+
+    char* popped = new char[num_vertices_];
+    memset(popped, 0, sizeof(char) * num_vertices_);
+    char* visited = new char[num_vertices_];
+    memset(visited, 0, sizeof(char) * num_vertices_);
+    int* queue = new int[num_vertices_];
+    int currQueueStart = 0;
+    int currQueueEnd = 1;
+    int nextQueueEnd = 1;
+
+    //visit root
+    root = findRoot(G);
+    visited[root] = 1;
+    popped[root] = 1;
+    queue[0] = root;
+
+    std::cout << "root " << root << std::endl;
+
+    //BFS traversal using queue
+    while(true) {
+        std::stable_sort(queue + currQueueStart, queue + currQueueEnd, [this](int aNode1, int aNode2){
+            return GetDegree(aNode1) > GetDegree(aNode2);
+        });
+        std::stable_sort(queue + currQueueStart, queue + currQueueEnd, [this](int aNode1, int aNode2){
+            return GetLabelFrequency(GetLabel(aNode1)) < GetLabelFrequency(GetLabel(aNode2));
+        });
+
+//        for (int i = *queue + currQueueStart; i < *queue + currQueueEnd; i++){
+//            std::cout << i << " " << GetDegree(i) << " " << GetLabelFrequency(GetLabel(i)) << "\n";
+//        }
+
+        while( currQueueStart != currQueueEnd ) {
+            int currNode = queue[ currQueueStart ];
+            ++currQueueStart;
+            popped[currNode] = 1;
+            std::cout << currNode << " ";
+
+            for(int i = GetNeighborStartOffset(currNode); i < GetNeighborEndOffset(currNode); ++i) {
+                int childNode = GetNeighbor(i);
+                if(popped[childNode] == 0) {
+                    childQuery[currNode][ numChild[currNode] ] = childNode;
+                    parentQuery[childNode][ numParent[childNode] ] = currNode;
+
+                    ++numChild[currNode];
+                    ++numParent[childNode];
+                }
+                if(visited[childNode] == 0) {
+                    visited[childNode] = 1;
+                    queue[nextQueueEnd] = childNode;
+                    ++nextQueueEnd;
+                }
+            }
+        }
+
+        if(currQueueEnd == nextQueueEnd) //no nodes have been pushed in
+            break;
+
+        currQueueStart = currQueueEnd;
+        currQueueEnd = nextQueueEnd;
+    }
+    std::cout << std::endl;
+    delete[] popped;
+    delete[] visited;
+    delete[] queue;
+
+//    for (int i = 0; i < num_vertices_; i++){
+//        std::cout << "vertex " << i << "'s child\n";
+//        for (int j = 0; j < GetDegree(i); j++){
+//            std::cout << childQuery[i][j] << " ";
+//        }
+//        std::cout << "\n" << std::endl;
+//
+//        std::cout << "vertex " << i << "'s parent\n";
+//        for (int j = 0; j < GetDegree(i); j++){
+//            std::cout << parentQuery[i][j] << " ";
+//        }
+//        std::cout << "\n" << std::endl;
+//    }
+}
+
+Graph::~Graph(){};

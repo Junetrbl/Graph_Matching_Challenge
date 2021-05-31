@@ -3,7 +3,6 @@
  *
  */
 
-#include <dag.h>
 #include "backtrack.h"
 #include "candidate_set.h"
 #include "common.h"
@@ -30,7 +29,8 @@ int main(int argc, char* argv[]) {
 
   Graph data(data_file_name);
   Graph query(query_file_name, true);
-  Dag queryDag(query, data);
+  query.buildDAG(data);
+
 //  CandidateSet candidate_set(candidate_set_file_name);
 //
 //  Backtrack backtrack;

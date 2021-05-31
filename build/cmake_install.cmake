@@ -1,4 +1,4 @@
-# Install script for directory: /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge
+# Install script for directory: /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/main/cmake_install.cmake")
+  include("/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/main/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

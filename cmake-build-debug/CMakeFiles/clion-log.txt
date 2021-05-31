@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G "CodeBlocks - Unix Makefiles" /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G "CodeBlocks - Unix Makefiles" /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/cmake-build-debug
+-- Build files have been written to: /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/cmake-build-debug

@@ -1,8 +1,8 @@
 main/CMakeFiles/program.dir/__/src/backtrack.cc.o: \
-  /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/src/backtrack.cc \
-  /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/include/backtrack.h \
-  /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/include/candidate_set.h \
-  /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/include/common.h \
+  /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/src/backtrack.cc \
+  /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/include/backtrack.h \
+  /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/include/candidate_set.h \
+  /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/include/common.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/pthread.h \
@@ -238,4 +238,4 @@ main/CMakeFiles/program.dir/__/src/backtrack.cc.o: \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__node_handle \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/optional \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/vector \
-  /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/include/graph.h
+  /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/include/graph.h

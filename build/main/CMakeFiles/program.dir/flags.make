@@ -4,7 +4,7 @@
 # compile CXX with /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/include
+CXX_INCLUDES = -I/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/include
 
 CXX_FLAGS =  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -O3 -Wall -std=c++11
 

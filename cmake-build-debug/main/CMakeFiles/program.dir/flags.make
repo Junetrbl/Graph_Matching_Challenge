@@ -6,5 +6,5 @@ CXX_FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/Ma
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/include 
+CXX_INCLUDES = -I/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/include 
 

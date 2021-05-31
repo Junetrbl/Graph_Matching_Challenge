@@ -1,4 +1,4 @@
-# Install script for directory: /Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main
+# Install script for directory: /Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
