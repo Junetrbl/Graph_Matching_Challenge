@@ -245,12 +245,16 @@ void Graph::buildDAG(Graph G) {
 
     //BFS traversal using queue
     while(true) {
-        std::stable_sort(queue + currQueueStart, queue + currQueueEnd, [this](int aNode1, int aNode2){
-            return GetDegree(aNode1) > GetDegree(aNode2);
-        });
-        std::stable_sort(queue + currQueueStart, queue + currQueueEnd, [this](int aNode1, int aNode2){
-            return GetLabelFrequency(GetLabel(aNode1)) < GetLabelFrequency(GetLabel(aNode2));
-        });
+        std::cout << "before sort" << std::endl;
+        merge_sort_by_degree(queue, currQueueStart, currQueueEnd, G);
+        merge_sort_by_label_frequency(queue, currQueueStart, currQueueEnd, G);
+        std::cout << "after sort" << std::endl;
+//        std::stable_sort(queue + currQueueStart, queue + currQueueEnd, [this](int aNode1, int aNode2){
+//            return GetDegree(aNode1) > GetDegree(aNode2);
+//        });
+//        std::stable_sort(queue + currQueueStart, queue + currQueueEnd, [this](int aNode1, int aNode2){
+//            return GetLabelFrequency(GetLabel(aNode1)) < GetLabelFrequency(GetLabel(aNode2));
+//        });
 
 //        for (int i = *queue + currQueueStart; i < *queue + currQueueEnd; i++){
 //            std::cout << i << " " << GetDegree(i) << " " << GetLabelFrequency(GetLabel(i)) << "\n";
@@ -290,19 +294,107 @@ void Graph::buildDAG(Graph G) {
     delete[] visited;
     delete[] queue;
 
-//    for (int i = 0; i < num_vertices_; i++){
-//        std::cout << "vertex " << i << "'s child\n";
-//        for (int j = 0; j < GetDegree(i); j++){
-//            std::cout << childQuery[i][j] << " ";
-//        }
-//        std::cout << "\n" << std::endl;
-//
-//        std::cout << "vertex " << i << "'s parent\n";
-//        for (int j = 0; j < GetDegree(i); j++){
-//            std::cout << parentQuery[i][j] << " ";
-//        }
-//        std::cout << "\n" << std::endl;
-//    }
+    for (int i = 0; i < num_vertices_; i++){
+        std::cout << "vertex " << i << "'s child\n";
+        for (int j = 0; j < GetDegree(i); j++){
+            std::cout << childQuery[i][j] << " ";
+        }
+        std::cout << "\n" << std::endl;
+
+        std::cout << "vertex " << i << "'s parent\n";
+        for (int j = 0; j < GetDegree(i); j++){
+            std::cout << parentQuery[i][j] << " ";
+        }
+        std::cout << "\n" << std::endl;
+    }
+}
+
+int *sorted;
+
+void Graph::merge_by_degree(int *data, int start, int mid, int end, Graph G){
+    int i = start;
+    int j = mid+1;
+    int k = start;
+    while(i <= mid && j <= end) {
+        if(GetDegree(i) >=  GetDegree(j)){
+            sorted[k] = data[i];
+            i++;
+        } else{
+            // data[i] > data[j]
+            sorted[k] = data[j];
+            j++;
+        }
+        k++;
+    }
+    if(i > mid){
+        for(int t = j; t<=end; t++){
+            sorted[k] = data[t];
+            k++;
+        }
+    }else{
+        for(int t = i; t<=mid; t++){
+            sorted[k] = data[t];
+            k++;
+        }
+    }
+    // 정렬된 배열을 삽입
+    for(int t=start; t<=end; t++){
+        data[t] = sorted[t];
+    }
+}
+
+void Graph::merge_sort_by_degree(int *data, int start, int end, Graph G){
+    if(start < end){
+        int mid = (start+end)/2;
+        merge_sort_by_degree(data, start, mid, G);
+        // 좌측 정렬
+        merge_sort_by_degree(data, mid+1, end, G);
+        // 우측 정렬
+        merge_by_degree(data, start, mid, end, G);
+    }
+}
+
+void Graph::merge_by_label_frequency(int *data, int start, int mid, int end, Graph G){
+    int i = start;
+    int j = mid+1;
+    int k = start;
+    while(i <= mid && j <= end) {
+        if(G.GetLabelFrequency(GetLabel(i))<= G.GetLabelFrequency(GetLabel(j))){
+            sorted[k] = data[i];
+            i++;
+        } else{
+            // data[i] > data[j]
+            sorted[k] = data[j];
+            j++;
+        }
+        k++;
+    }
+    if(i > mid){
+        for(int t = j; t<=end; t++){
+            sorted[k] = data[t];
+            k++;
+        }
+    }else{
+        for(int t = i; t<=mid; t++){
+            sorted[k] = data[t];
+            k++;
+        }
+    }
+    // 정렬된 배열을 삽입
+    for(int t=start; t<=end; t++){
+        data[t] = sorted[t];
+    }
+}
+
+void Graph::merge_sort_by_label_frequency(int *data, int start, int end, Graph G){
+    if(start < end){
+        int mid = (start+end)/2;
+        merge_sort_by_label_frequency(data, start, mid, G);
+        // 좌측 정렬
+        merge_sort_by_label_frequency(data, mid+1, end, G);
+        // 우측 정렬
+        merge_by_label_frequency(data, start, mid, end, G);
+    }
 }
 
 Graph::~Graph(){};

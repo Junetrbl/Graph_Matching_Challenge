@@ -63,6 +63,18 @@ class Graph {
   int* numParent = NULL;
 
   Vertex findRoot(Graph G);
+
+    void merge(int *data, int start, int mid, int end, Graph G);
+
+    void merge_sort(int *data, int start, int end, Graph G);
+
+    void merge_by_degree(int *data, int start, int mid, int end, Graph G);
+
+    void merge_sort_by_degree(int *data, int start, int end, Graph G);
+
+    void merge_sort_by_label_frequency(int *data, int start, int end, Graph G);
+
+    void merge_by_label_frequency(int *data, int start, int mid, int end, Graph G);
 };
 
 /**
