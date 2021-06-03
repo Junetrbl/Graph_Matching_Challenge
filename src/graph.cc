@@ -241,6 +241,9 @@ void Graph::buildDAG(Graph G) {
 
     std::cout << "root " << root << std::endl;
 
+    std::cout << G.GetLabelFrequency(GetLabel(37)) << "\n";
+    std::cout << G.GetLabelFrequency(GetLabel(35)) << "\n";
+
     //BFS traversal using queue
     while(true) {
         int* sorted = new int[num_vertices_];
@@ -290,15 +293,19 @@ void Graph::buildDAG(Graph G) {
     for (int i = 0; i < num_vertices_; i++){
         std::cout << "vertex " << i << "'s child\n";
         for (int j = 0; j < GetDegree(i); j++){
-            std::cout << childQuery[i][j] << " ";
+            if (childQuery[i][j] != -1){
+                std::cout << childQuery[i][j] << " ";
+            }
         }
         std::cout << std::endl;
 
-        std::cout << "vertex " << i << "'s parent\n";
-        for (int j = 0; j < GetDegree(i); j++){
-            std::cout << parentQuery[i][j] << " ";
-        }
-        std::cout << std::endl;
+//        std::cout << "vertex " << i << "'s parent\n";
+//        for (int j = 0; j < GetDegree(i); j++){
+//            if (parentQuery[i][j] != -1){
+//                std::cout << parentQuery[i][j] << " ";
+//            }
+//        }
+//        std::cout << std::endl;
     }
 }
 
