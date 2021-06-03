@@ -17,6 +17,8 @@ class Backtrack {
 
   void PrintAllMatches(const Graph &data, const Graph &query,
                        const CandidateSet &cs);
+  void FindPartialEmbedding(const Graph &data, const Graph &query, const CandidateSet &cs,
+                                         int uArr[][1], int embeddingSize, int u);
 };
 
 #endif  // BACKTRACK_H_

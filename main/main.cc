@@ -19,23 +19,20 @@ int main(int argc, char* argv[]) {
   std::string query_file_name = argv[2];
   std::string candidate_set_file_name = argv[3];
 
-//  std::cout << data_file_name << " " << query_file_name << " " << candidate_set_file_name << "\n";
-//
-//  data_file_name = "../data/lcc_hprd.igraph";
-//  query_file_name = "../query/lcc_hprd_n1.igraph";
-//  candidate_set_file_name = "../candidate_set/lcc_hprd_n1.cs";
-//
-//  std::cout << data_file_name << " " << query_file_name << " " << candidate_set_file_name << "\n";
+
+//    std::string data_file_nam = "../data/sample_data.igraph";
+//    std::string query_file_nam = "../query/sample_query.igraph";
+//    std::string candidate_set_file_nam = "../candidate_set/sample.cs";
+//  std::cout << (data_file_nam == data_file_name) << "\n";
+
 
   Graph data(data_file_name);
   Graph query(query_file_name, true);
   query.buildDAG(data);
 
-//  CandidateSet candidate_set(candidate_set_file_name);
-//
-//  Backtrack backtrack;
-//
-//  backtrack.PrintAllMatches(data, query, candidate_set);
+  CandidateSet candidate_set(candidate_set_file_name);
+  Backtrack backtrack;
+  backtrack.PrintAllMatches(data, query, candidate_set);
 
   return EXIT_SUCCESS;
 }

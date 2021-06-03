@@ -37,14 +37,19 @@ class Graph {
 
   void buildDAG(Graph G);
 
+  int** childQuery = NULL;
+  int** parentQuery = NULL;
+  int* numChild = NULL;
+  int* numParent = NULL;
+
+  Vertex root;
+
  private:
   int32_t graph_id_;
 
   size_t num_vertices_;
   size_t num_edges_;
   size_t num_labels_;
-
-  Vertex root;
 
 
   std::vector<size_t> label_frequency_;
@@ -57,24 +62,15 @@ class Graph {
 
   Label max_label_;
 
-  int** childQuery = NULL;
-  int** parentQuery = NULL;
-  int* numChild = NULL;
-  int* numParent = NULL;
-
   Vertex findRoot(Graph G);
 
-    void merge(int *data, int start, int mid, int end, Graph G);
+    void merge_by_degree(int *data, int start, int mid, int end, Graph G, int *sorted);
 
-    void merge_sort(int *data, int start, int end, Graph G);
+    void merge_sort_by_degree(int *data, int start, int end, Graph G, int *sorted);
 
-    void merge_by_degree(int *data, int start, int mid, int end, Graph G);
+    void merge_by_label_frequency(int *data, int start, int mid, int end, Graph G, int *sorted);
 
-    void merge_sort_by_degree(int *data, int start, int end, Graph G);
-
-    void merge_sort_by_label_frequency(int *data, int start, int end, Graph G);
-
-    void merge_by_label_frequency(int *data, int start, int mid, int end, Graph G);
+    void merge_sort_by_label_frequency(int *data, int start, int end, Graph G, int *sorted);
 };
 
 /**

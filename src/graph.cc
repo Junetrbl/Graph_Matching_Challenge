@@ -185,7 +185,6 @@ int Graph::findRoot(Graph G) {
 }
 
 void Graph::buildDAG(Graph G) {
-    //allocate memory for dag data structure
     if( this->childQuery == NULL ) {
         this->childQuery = new int*[num_vertices_];
         for(int i = 0; i < num_vertices_; ++i)
@@ -235,7 +234,6 @@ void Graph::buildDAG(Graph G) {
     int currQueueEnd = 1;
     int nextQueueEnd = 1;
 
-    //visit root
     root = findRoot(G);
     visited[root] = 1;
     popped[root] = 1;
@@ -245,26 +243,21 @@ void Graph::buildDAG(Graph G) {
 
     //BFS traversal using queue
     while(true) {
-        std::cout << "before sort" << std::endl;
-        merge_sort_by_degree(queue, currQueueStart, currQueueEnd, G);
-        merge_sort_by_label_frequency(queue, currQueueStart, currQueueEnd, G);
-        std::cout << "after sort" << std::endl;
-//        std::stable_sort(queue + currQueueStart, queue + currQueueEnd, [this](int aNode1, int aNode2){
-//            return GetDegree(aNode1) > GetDegree(aNode2);
-//        });
-//        std::stable_sort(queue + currQueueStart, queue + currQueueEnd, [this](int aNode1, int aNode2){
-//            return GetLabelFrequency(GetLabel(aNode1)) < GetLabelFrequency(GetLabel(aNode2));
-//        });
+        int* sorted = new int[num_vertices_];
+        merge_sort_by_degree(queue, currQueueStart, currQueueEnd-1, G, sorted);
+        merge_sort_by_label_frequency(queue, currQueueStart, currQueueEnd-1, G, sorted);
 
-//        for (int i = *queue + currQueueStart; i < *queue + currQueueEnd; i++){
-//            std::cout << i << " " << GetDegree(i) << " " << GetLabelFrequency(GetLabel(i)) << "\n";
+//        std::cout << "sorted queue" << std::endl;
+//        for (int i = currQueueStart; i < currQueueEnd; i++){
+//            std::cout << queue[i];
 //        }
+//        std::cout << std::endl;
 
         while( currQueueStart != currQueueEnd ) {
             int currNode = queue[ currQueueStart ];
             ++currQueueStart;
             popped[currNode] = 1;
-            std::cout << currNode << " ";
+//            std::cout << currNode << " ";
 
             for(int i = GetNeighborStartOffset(currNode); i < GetNeighborEndOffset(currNode); ++i) {
                 int childNode = GetNeighbor(i);
@@ -283,7 +276,7 @@ void Graph::buildDAG(Graph G) {
             }
         }
 
-        if(currQueueEnd == nextQueueEnd) //no nodes have been pushed in
+        if(currQueueEnd == nextQueueEnd)
             break;
 
         currQueueStart = currQueueEnd;
@@ -299,19 +292,17 @@ void Graph::buildDAG(Graph G) {
         for (int j = 0; j < GetDegree(i); j++){
             std::cout << childQuery[i][j] << " ";
         }
-        std::cout << "\n" << std::endl;
+        std::cout << std::endl;
 
         std::cout << "vertex " << i << "'s parent\n";
         for (int j = 0; j < GetDegree(i); j++){
             std::cout << parentQuery[i][j] << " ";
         }
-        std::cout << "\n" << std::endl;
+        std::cout << std::endl;
     }
 }
 
-int *sorted;
-
-void Graph::merge_by_degree(int *data, int start, int mid, int end, Graph G){
+void Graph::merge_by_degree(int *data, int start, int mid, int end, Graph G, int* sorted){
     int i = start;
     int j = mid+1;
     int k = start;
@@ -337,24 +328,21 @@ void Graph::merge_by_degree(int *data, int start, int mid, int end, Graph G){
             k++;
         }
     }
-    // 정렬된 배열을 삽입
     for(int t=start; t<=end; t++){
         data[t] = sorted[t];
     }
 }
 
-void Graph::merge_sort_by_degree(int *data, int start, int end, Graph G){
+void Graph::merge_sort_by_degree(int *data, int start, int end, Graph G, int* sorted){
     if(start < end){
         int mid = (start+end)/2;
-        merge_sort_by_degree(data, start, mid, G);
-        // 좌측 정렬
-        merge_sort_by_degree(data, mid+1, end, G);
-        // 우측 정렬
-        merge_by_degree(data, start, mid, end, G);
+        merge_sort_by_degree(data, start, mid, G, (int* )sorted);
+        merge_sort_by_degree(data, mid+1, end, G, (int* )sorted);
+        merge_by_degree(data, start, mid, end, G, (int*) sorted);
     }
 }
 
-void Graph::merge_by_label_frequency(int *data, int start, int mid, int end, Graph G){
+void Graph::merge_by_label_frequency(int *data, int start, int mid, int end, Graph G, int* sorted){
     int i = start;
     int j = mid+1;
     int k = start;
@@ -380,20 +368,17 @@ void Graph::merge_by_label_frequency(int *data, int start, int mid, int end, Gra
             k++;
         }
     }
-    // 정렬된 배열을 삽입
     for(int t=start; t<=end; t++){
         data[t] = sorted[t];
     }
 }
 
-void Graph::merge_sort_by_label_frequency(int *data, int start, int end, Graph G){
+void Graph::merge_sort_by_label_frequency(int *data, int start, int end, Graph G, int* sorted){
     if(start < end){
         int mid = (start+end)/2;
-        merge_sort_by_label_frequency(data, start, mid, G);
-        // 좌측 정렬
-        merge_sort_by_label_frequency(data, mid+1, end, G);
-        // 우측 정렬
-        merge_by_label_frequency(data, start, mid, end, G);
+        merge_sort_by_label_frequency(data, start, mid, G, (int*) sorted);
+        merge_sort_by_label_frequency(data, mid+1, end, G, (int* )sorted);
+        merge_by_label_frequency(data, start, mid, end, G, (int*) sorted);
     }
 }
 

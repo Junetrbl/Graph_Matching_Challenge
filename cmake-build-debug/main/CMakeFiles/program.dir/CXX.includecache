@@ -40,13 +40,13 @@ vector
 common.h
 ../include/common.h
 
-/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main/main.cc
+/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main/main.cc
 backtrack.h
-/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main/backtrack.h
+/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main/backtrack.h
 candidate_set.h
-/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main/candidate_set.h
+/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main/candidate_set.h
 common.h
-/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main/common.h
+/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main/common.h
 graph.h
-/Users/parkyoonsoo/Documents/GitHub/Graph-Pattern-Matching-Challenge/main/graph.h
+/Users/parkyoonsoo/Documents/GitHub/Graph_Matching_Challenge/main/graph.h
 
