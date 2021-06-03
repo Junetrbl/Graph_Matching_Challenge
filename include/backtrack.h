@@ -34,6 +34,8 @@ class Backtrack {
     ExtendableCandidate(const Graph &data, const Graph &query, const CandidateSet &cs,
                         std::vector<std::pair<int, int>> M,
                         int u);
+
+    int IsInM(std::vector<std::pair<int, int>> M, int vertex, bool first);
 };
 
 #endif  // BACKTRACK_H_

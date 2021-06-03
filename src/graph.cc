@@ -239,11 +239,6 @@ void Graph::buildDAG(Graph G) {
     popped[root] = 1;
     queue[0] = root;
 
-    std::cout << "root " << root << std::endl;
-
-    std::cout << G.GetLabelFrequency(GetLabel(37)) << "\n";
-    std::cout << G.GetLabelFrequency(GetLabel(35)) << "\n";
-
     //BFS traversal using queue
     while(true) {
         int* sorted = new int[num_vertices_];

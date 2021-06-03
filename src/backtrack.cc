@@ -7,7 +7,7 @@
 #include <algorithm>
 
 Backtrack::Backtrack() {
-    std::cout << "backtrack" << "\n";
+//    std::cout << "backtrack" << "\n";
 }
 Backtrack::~Backtrack() {}
 
@@ -27,8 +27,8 @@ void Backtrack::FindPartialEmbedding(const Graph &data, const Graph &query,
 
     if (M.size() == query.GetNumVertices()){
         std::cout << "a ";
-        for (int i = 0; i < M.size(); i++){
-            std::cout << M.at(i).second << " ";
+        for (int i = 0; i < query.GetNumVertices(); i++){
+            std::cout << IsInM(M, i, true) << " ";
         }
         std::cout << std::endl;
     }
@@ -57,7 +57,7 @@ void Backtrack::FindPartialEmbedding(const Graph &data, const Graph &query,
     }
 }
 
-int IsInM(std::vector<std::pair<int, int>> M, int vertex, bool first){
+int Backtrack::IsInM(std::vector<std::pair<int, int>> M, int vertex, bool first){
     if (first){
         for (int i = 0 ; i < M.size(); i++){
             if (M.at(i).first == vertex){
@@ -105,6 +105,9 @@ std::vector<int> Backtrack::ExtendableCandidate(const Graph &data, const Graph &
         parentVs.push_back(parentV);
     }
     for (int i = 0; i < cs.GetCandidateSize(u); i++){
+        if (IsInM(M, cs.GetCandidate(u, i), false) != -1){
+            continue;
+        }
         bool isConnected = true;
         for (int j = 0; j < parentNum; j++){
             if (!data.IsNeighbor(parentVs.at(j), cs.GetCandidate(u, i))){
