@@ -5,6 +5,7 @@
 
 #include "backtrack.h"
 #include <algorithm>
+#include <stack>
 
 Backtrack::Backtrack() {
     std::cout << "backtrack" << "\n";
@@ -14,58 +15,56 @@ Backtrack::~Backtrack() {}
 void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
                                 const CandidateSet &cs) {
   std::cout << "t " << query.GetNumVertices() << "\n";
-  int uArr[query.GetNumVertices()][1];
-  for (int i = 0; i < query.GetNumVertices(); i++){
-      uArr[i][0] = 0;
-  }
+  std::vector<std::pair<int, int>> searchTree;
 
   // implement your code here.
-  FindPartialEmbedding(data, query, cs, uArr, 0, query.root);
-
+  int root = query.root;
+  std::cout << "root " << root << std::endl;
+  for (int i = 0; i < cs.GetCandidateSize(root); i++){
+      FindPartialEmbedding(data, query, cs, searchTree, root, cs.GetCandidate(root, i));
+  }
 }
 
 void Backtrack::FindPartialEmbedding(const Graph &data, const Graph &query, const CandidateSet &cs,
-                                     int uArr[][1], int embeddingSize, int u) {
-    std::cout << "embeddingSize " << embeddingSize << "\n";
+                                     std::vector<std::pair<int, int>>& searchTree, int u, int v) {
+//    std::cout << "search Tree Size " << searchTree.size() << "\n";
 //    std::cout << "u is " << u << "\n";
+//    std::cout << "v is " << v << "\n";
 
-    for (int i = 0; i < cs.GetCandidateSize(u); i++){
-        int vCandidate = cs.GetCandidate(u, i);
-//        std::cout << "v is " << vCandidate << "\n";
+    searchTree.emplace_back(std::pair<int, int>(u, v));
+//    std::cout << searchTree.size() << std::endl;
 
-        bool hasParent = true;
 
-        for (int j = 0; j < query.numParent[u]; j++){
-            // 이미 나온 것 제거 해야됨
-            if (!data.IsNeighbor(uArr[query.parentQuery[u][j]][0], vCandidate)){
-                hasParent = false;
+    if (searchTree.size() == query.GetNumVertices()){
+        std::cout << "a";
+        for (int i = 0; i < searchTree.size(); i++){
+            std::cout << " " << searchTree.at(i).second;
+        }
+        std::cout << std::endl;
+        return;
+    }
+
+    for (int i = 0; i < query.numChild[u]; i++){
+        int uCandidate = query.childQuery[u][i];
+        bool visited = false;
+        for(int k = 0; k < searchTree.size(); k++){
+            if (searchTree.at(k).first == uCandidate){
+                visited = true;
                 break;
             }
         }
-        if (!hasParent){
-//            printf("not correct\n");
-            continue;
-        }
-//        printf("match success\n");
-
-        if (embeddingSize + 1 == query.GetNumVertices()){
-            int newUArr[query.GetNumVertices()][1];
-            std::copy(&uArr[0][0], &uArr[0][0] + query.GetNumVertices() * 1, &newUArr[0][0]);
-            newUArr[u][0] = vCandidate;
-
-            std::cout << "a";
-            for (int i = 0; i < query.GetNumVertices(); i++){
-                std::cout << " " << newUArr[i][0];
+        if (!visited){
+            for (int j = 0; j < cs.GetCandidateSize(uCandidate); j++){
+                int vCandidate = cs.GetCandidate(uCandidate, j);
+//                    std::cout << "uCandidate is " << uCandidate << "\n";
+//                    std::cout << "vCandidate is " << vCandidate << "\n";
+                if (!data.IsNeighbor(v, vCandidate)){
+                    continue;
+                }
+                FindPartialEmbedding(data, query, cs, searchTree, uCandidate, vCandidate);
+                searchTree.pop_back();
             }
-            std::cout << std::endl;
-            return;
         }
-//        printf("continue?");
-        for (int k = 0; k < query.numChild[u]; k++){
-            int newUArr[query.GetNumVertices()][1];
-            std::copy(&uArr[0][0], &uArr[0][0] + query.GetNumVertices() * 1, &newUArr[0][0]);
-            newUArr[u][0] = vCandidate;
-            FindPartialEmbedding(data, query, cs, newUArr, embeddingSize+1, query.childQuery[u][k]);
-        }
+
     }
 }

@@ -290,14 +290,14 @@ void Graph::buildDAG(Graph G) {
     delete[] visited;
     delete[] queue;
 
-    for (int i = 0; i < num_vertices_; i++){
-        std::cout << "vertex " << i << "'s child\n";
-        for (int j = 0; j < GetDegree(i); j++){
-            if (childQuery[i][j] != -1){
-                std::cout << childQuery[i][j] << " ";
-            }
-        }
-        std::cout << std::endl;
+//    for (int i = 0; i < num_vertices_; i++){
+//        std::cout << "vertex " << i << "'s child\n";
+//        for (int j = 0; j < GetDegree(i); j++){
+//            if (childQuery[i][j] != -1){
+//                std::cout << childQuery[i][j] << " ";
+//            }
+//        }
+//        std::cout << std::endl;
 
 //        std::cout << "vertex " << i << "'s parent\n";
 //        for (int j = 0; j < GetDegree(i); j++){
@@ -306,7 +306,7 @@ void Graph::buildDAG(Graph G) {
 //            }
 //        }
 //        std::cout << std::endl;
-    }
+//    }
 }
 
 void Graph::merge_by_degree(int *data, int start, int mid, int end, Graph G, int* sorted){
