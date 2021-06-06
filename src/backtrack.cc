@@ -25,12 +25,15 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     FindPartialEmbedding(data, query, cs, M, visited);
 }
 
+/**
+* Recursive function for Backtracking
+*/
 void Backtrack::FindPartialEmbedding(const Graph &data, const Graph &query,
                                      const CandidateSet &cs, std::vector<std::pair<int, int>> M, int *visited)
 {
-
     if (M.size() == query.GetNumVertices())
     {
+        /// stdout when a matching is found
         std::cout << "a ";
         for (int i = 0; i < query.GetNumVertices(); i++)
         {
@@ -39,8 +42,10 @@ void Backtrack::FindPartialEmbedding(const Graph &data, const Graph &query,
         std::cout << std::endl;
     }
 
+    /// Initial state of the Partial embedding M
     else if (M.size() == 0)
     {
+        /// Root from the Query DAG
         int r = query.root;
 
         std::priority_queue<std::pair<Vertex, int>,
@@ -80,6 +85,9 @@ void Backtrack::FindPartialEmbedding(const Graph &data, const Graph &query,
     }
 }
 
+/**
+ * Function for whether a vertex is in M or not
+ */
 int Backtrack::IsInM(std::vector<std::pair<int, int>> M, int vertex, bool first)
 {
     if (first)

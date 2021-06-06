@@ -185,6 +185,9 @@ int Graph::findRoot(Graph G) {
 }
 
 void Graph::buildDAG(Graph G) {
+    /**
+     * Allocate memory for storing the DAG information
+     */
     if( this->childQuery == NULL ) {
         this->childQuery = new int*[num_vertices_];
         for(int i = 0; i < num_vertices_; ++i)
@@ -225,85 +228,57 @@ void Graph::buildDAG(Graph G) {
         }
     }
 
-    char* popped = new char[num_vertices_];
-    memset(popped, 0, sizeof(char) * num_vertices_);
+    char* considered = new char[num_vertices_];
+    memset(considered, 0, sizeof(char) * num_vertices_);
     char* visited = new char[num_vertices_];
     memset(visited, 0, sizeof(char) * num_vertices_);
     int* queue = new int[num_vertices_];
-    int currQueueStart = 0;
-    int currQueueEnd = 1;
-    int nextQueueEnd = 1;
+    int firstIndex = 0;
+    int lastIndex = 1;
+    int nextIndex = 1;
 
+    /// Find root
     root = findRoot(G);
     visited[root] = 1;
-    popped[root] = 1;
+    considered[root] = 1;
     queue[0] = root;
 
-    //BFS traversal using queue
+    /// BFS using two queues
     while(true) {
         int* sorted = new int[num_vertices_];
-        merge_sort_by_degree(queue, currQueueStart, currQueueEnd-1, G, sorted);
-        merge_sort_by_label_frequency(queue, currQueueStart, currQueueEnd-1, G, sorted);
+        merge_sort_by_degree(queue, firstIndex, lastIndex - 1, G, sorted);
+        merge_sort_by_label_frequency(queue, firstIndex, lastIndex - 1, G, sorted);
 
-//        std::cout << "sorted queue" << std::endl;
-//        for (int i = currQueueStart; i < currQueueEnd; i++){
-//            std::cout << queue[i];
-//        }
-//        std::cout << std::endl;
+        while(firstIndex != lastIndex ) {
+            int node = queue[ firstIndex ];
+            ++firstIndex;
+            considered[node] = 1;
 
-        while( currQueueStart != currQueueEnd ) {
-            int currNode = queue[ currQueueStart ];
-            ++currQueueStart;
-            popped[currNode] = 1;
-//            std::cout << currNode << " ";
-
-            for(int i = GetNeighborStartOffset(currNode); i < GetNeighborEndOffset(currNode); ++i) {
+            for(int i = GetNeighborStartOffset(node); i < GetNeighborEndOffset(node); ++i) {
                 int childNode = GetNeighbor(i);
-                if(popped[childNode] == 0) {
-                    childQuery[currNode][ numChild[currNode] ] = childNode;
-                    parentQuery[childNode][ numParent[childNode] ] = currNode;
-
-                    ++numChild[currNode];
-                    ++numParent[childNode];
+                if(considered[childNode] == 0) {
+                    childQuery[node][numChild[node]++] = childNode;
+                    parentQuery[childNode][numParent[childNode]++] = node;
                 }
                 if(visited[childNode] == 0) {
+                    queue[nextIndex++] = childNode;
                     visited[childNode] = 1;
-                    queue[nextQueueEnd] = childNode;
-                    ++nextQueueEnd;
                 }
             }
         }
 
-        if(currQueueEnd == nextQueueEnd)
+        if(lastIndex == nextIndex) {
             break;
-
-        currQueueStart = currQueueEnd;
-        currQueueEnd = nextQueueEnd;
+        }
+        firstIndex = lastIndex;
+        lastIndex = nextIndex;
     }
-    std::cout << std::endl;
-    delete[] popped;
-    delete[] visited;
-    delete[] queue;
-
-//    for (int i = 0; i < num_vertices_; i++){
-//        std::cout << "vertex " << i << "'s child\n";
-//        for (int j = 0; j < GetDegree(i); j++){
-//            if (childQuery[i][j] != -1){
-//                std::cout << childQuery[i][j] << " ";
-//            }
-//        }
-//        std::cout << std::endl;
-
-//        std::cout << "vertex " << i << "'s parent\n";
-//        for (int j = 0; j < GetDegree(i); j++){
-//            if (parentQuery[i][j] != -1){
-//                std::cout << parentQuery[i][j] << " ";
-//            }
-//        }
-//        std::cout << std::endl;
-//    }
 }
 
+/**
+ * The functions below are additional functions for mergeSort
+ * depending on the Degree or the Label Frequency of the vertex
+ */
 void Graph::merge_by_degree(int *data, int start, int mid, int end, Graph G, int* sorted){
     int i = start;
     int j = mid+1;

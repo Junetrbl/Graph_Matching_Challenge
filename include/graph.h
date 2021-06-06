@@ -35,8 +35,10 @@ class Graph {
 
   inline bool IsNeighbor(Vertex u, Vertex v) const;
 
+  /// construct the child array and the parent array of the DAG of the query graph
   void buildDAG(Graph G);
 
+  /// Arrays for the Childs and the Parents of Each Vertex
   int** childQuery = NULL;
   int** parentQuery = NULL;
   int* numChild = NULL;
@@ -62,6 +64,7 @@ class Graph {
 
   Label max_label_;
 
+  /// root of the Query DAG
   Vertex findRoot(Graph G);
 
     void merge_by_degree(int *data, int start, int mid, int end, Graph G, int *sorted);
