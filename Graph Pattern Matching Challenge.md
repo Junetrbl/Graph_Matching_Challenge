@@ -1,5 +1,4 @@
 # Graph Pattern Matching Challenge
-#algorithm #project #SNU #CSE
 
 2018-12430 Kim Miseung & 2018-10036 Park Yoonsoo
 
