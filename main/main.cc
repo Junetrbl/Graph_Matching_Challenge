@@ -11,8 +11,6 @@
 
 int main(int argc, char *argv[])
 {
-  clock_t start, end;
-  start = clock();
   if (argc < 4)
   {
     std::cerr << "Usage: ./program <data graph file> <query graph file> "
@@ -36,9 +34,6 @@ int main(int argc, char *argv[])
   CandidateSet candidate_set(candidate_set_file_name);
   Backtrack backtrack;
   backtrack.PrintAllMatches(data, query, candidate_set);
-  end = clock();
-  double result = (double)(end - start);
-  std::cout << result << std::endl;
 
   return EXIT_SUCCESS;
 }
