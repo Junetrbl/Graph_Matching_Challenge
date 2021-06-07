@@ -18,22 +18,18 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     std::cout << "t " << query.GetNumVertices() << "\n";
     std::vector<std::pair<int, int>> searchTree;
 
-    // implement your code here.
     std::vector<std::pair<int, int>> M;
     int *visited = new int[data.GetNumVertices()];
     memset(visited, 0, sizeof(int) * data.GetNumVertices());
     FindPartialEmbedding(data, query, cs, M, visited);
 }
 
-/**
-* Recursive function for Backtracking
-*/
 void Backtrack::FindPartialEmbedding(const Graph &data, const Graph &query,
-                                     const CandidateSet &cs, std::vector<std::pair<int, int>> M, int *visited)
+                                     const CandidateSet &cs, std::vector<std::pair<int, int>> &M, int *visited)
 {
+
     if (M.size() == query.GetNumVertices())
     {
-        /// stdout when a matching is found
         std::cout << "a ";
         for (int i = 0; i < query.GetNumVertices(); i++)
         {
@@ -42,24 +38,14 @@ void Backtrack::FindPartialEmbedding(const Graph &data, const Graph &query,
         std::cout << std::endl;
     }
 
-    /// Initial state of the Partial embedding M
     else if (M.size() == 0)
     {
-        /// Root from the Query DAG
-        int r = query.root;
-
-        std::priority_queue<std::pair<Vertex, int>,
-                            std::vector<std::pair<Vertex, int>>, cmp>
-            CmR = ExtendableCandidate(data, query, cs, M, r);
-
-        while (!CmR.empty())
+        for (int i = 0; i < cs.GetCandidateSize(query.root); i++)
         {
-            int v = CmR.top().first;
-            CmR.pop();
-            M.push_back(std::pair<int, int>(r, v));
-            visited[v] = 1;
+            M.push_back(std::pair<int, int>(query.root, cs.GetCandidate(query.root, i)));
+            visited[cs.GetCandidate(query.root, i)] = 1;
             FindPartialEmbedding(data, query, cs, M, visited);
-            visited[v] = 0;
+            visited[cs.GetCandidate(query.root, i)] = 0;
         }
     }
 
@@ -74,21 +60,18 @@ void Backtrack::FindPartialEmbedding(const Graph &data, const Graph &query,
         {
             int v = CmU.top().first;
             CmU.pop();
-            std::vector<std::pair<int, int>> newM;
-            newM.resize(M.size());
-            std::copy(M.begin(), M.end(), newM.begin());
-            newM.push_back(std::pair<int, int>(u, v));
+            M.push_back(std::pair<int, int>(u, v));
             visited[v] = 1;
-            FindPartialEmbedding(data, query, cs, newM, visited);
+            FindPartialEmbedding(data, query, cs, M, visited);
             visited[v] = 0;
         }
     }
+
+    M.pop_back();
+    return;
 }
 
-/**
- * Function for whether a vertex is in M or not
- */
-int Backtrack::IsInM(std::vector<std::pair<int, int>> M, int vertex, bool first)
+int Backtrack::IsInM(std::vector<std::pair<int, int>> &M, int vertex, bool first)
 {
     if (first)
     {
@@ -96,7 +79,6 @@ int Backtrack::IsInM(std::vector<std::pair<int, int>> M, int vertex, bool first)
         {
             if (M.at(i).first == vertex)
             {
-                // vertex의 v
                 return M.at(i).second;
             }
         }
@@ -108,7 +90,6 @@ int Backtrack::IsInM(std::vector<std::pair<int, int>> M, int vertex, bool first)
         {
             if (M.at(i).second == vertex)
             {
-                // vertex의 u
                 return M.at(i).first;
             }
         }
@@ -120,7 +101,7 @@ int Backtrack::IsInM(std::vector<std::pair<int, int>> M, int vertex, bool first)
 // If these is no extendable vertex of Partial embedding M, it returns -1.
 // Otherwise, it returns the minimum candidate size extendable vertex
 
-int Backtrack::ExtendableVertex(const Graph &query, std::vector<std::pair<int, int>> M, const CandidateSet &cs)
+int Backtrack::ExtendableVertex(const Graph &query, std::vector<std::pair<int, int>> &M, const CandidateSet &cs)
 {
     std::priority_queue<std::pair<Vertex, int>, std::vector<std::pair<Vertex, int>>, cmp> Ext;
 
@@ -158,8 +139,9 @@ int Backtrack::ExtendableVertex(const Graph &query, std::vector<std::pair<int, i
 //Find Extendable Candidates of Extendable vertex u and use priority_queue to pop the minimum one
 
 std::priority_queue<std::pair<Vertex, int>, std::vector<std::pair<Vertex, int>>, cmp> Backtrack::ExtendableCandidate(const Graph &data, const Graph &query, const CandidateSet &cs,
-                                                                                                                     std::vector<std::pair<int, int>> M, int u)
+                                                                                                                     std::vector<std::pair<int, int>> &M, int u)
 {
+    // common.h에 정의한 comparator cmp 사용 : pair의 두번째 값을 기준으로 더 작은 값이 먼저 pop될 수 있게끔 구현.
     std::priority_queue<std::pair<Vertex, int>, std::vector<std::pair<Vertex, int>>, cmp> Cm;
     int parentNum = query.numParent[u];
     std::vector<int> parentVs;
@@ -187,6 +169,10 @@ std::priority_queue<std::pair<Vertex, int>, std::vector<std::pair<Vertex, int>>,
         }
         if (isConnected)
         {
+            // use degree of each extendable candidate vertex in data graph
+            // 만약 data graph에서 해당 candidate vertex의 degree가 작다면,
+            // 추후에 추가될 candidate vertex들과 연결되어 있지 않을 가능성이 높아져 따져야하는 경우의 수를 줄일 수 있음.
+
             Cm.push({cs.GetCandidate(u, i), data.GetDegree(cs.GetCandidate(u, i))});
         }
     }
