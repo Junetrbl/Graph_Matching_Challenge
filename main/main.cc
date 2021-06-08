@@ -22,6 +22,11 @@ int main(int argc, char *argv[])
   std::string query_file_name = argv[2];
   std::string candidate_set_file_name = argv[3];
 
+  //    std::string data_file_nam = "../data/sample_data.igraph";
+  //    std::string query_file_nam = "../query/sample_query.igraph";
+  //    std::string candidate_set_file_nam = "../candidate_set/sample.cs";
+  //  std::cout << (data_file_nam == data_file_name) << "\n";
+
   Graph data(data_file_name);
   Graph query(query_file_name, true);
   query.buildDAG(data);
